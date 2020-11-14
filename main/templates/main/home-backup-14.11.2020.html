@@ -1,0 +1,49 @@
+<form action="/submit_mas_entry" method="get">
+
+	<!-- Date of issue / consumption -->
+	<div>
+		<label for="mas_entry_date">Date of Issue/Consumption:</label>
+		<input type="date" id="mas_entry_date" name="mas_entry_date" required>
+	</div>
+	
+	<!-- Material Name -->
+	<div class="input-field col s12">
+		<label for="mas_entry_material">Material Name:</label>
+		<input list="mas_entry_materials" name="mas_entry_material" id="mas_entry_material" required>
+		<datalist id="mas_entry_materials">
+			<option value="ipc_p4">IPC P4</option>
+			<option value="ipc_p2">IPC P2</option>
+			<option value="lt_dist_box">LT Dist. Box / Tyco</option>
+			<option value="steel_strap">Steel Strap</option>
+		</datalist>
+	</div>
+	
+	<!-- Quantity of material -->
+	<div>
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" min="1" required>
+		<input list="units" name="unit" id="unit" required>
+		<datalist id="units">
+			<option value="EA">
+			<option value="M">
+			<option value="ROL">
+			<option value="L">
+		</datalist>
+	</div>
+	
+	<!-- Location -->
+	<div>
+		<label for="location">Location:</label>
+		<input type="text" id="location" name="location" required><br><br>
+	</div>
+	
+	<!-- Remarks -->
+	<div>
+		<label for="remarks">Remarks:</label>
+		<input type="text" id="remarks" name="remarks"><br><br>
+	</div>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+
