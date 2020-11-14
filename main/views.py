@@ -37,6 +37,10 @@ def mystyles(request):
 	print(os.listdir())
 	styles_file = BASE_DIR+'/main/templates/main/mystyles.css'
 	print(f"Styles file is : {styles_file}")
+	file = open(styles_file, "r+")
+	print(file.readlines())
+	file.close()
+	
 	styles = open(styles_file, 'rb')
 	response = FileResponse(styles)
 	return response
