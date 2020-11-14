@@ -1,23 +1,18 @@
-<head>
-    {% load static %}
-    <!-- Compiled and minified CSS -->
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" /> -->
-	<link rel="stylesheet" href="mystyles"/>
-	
-	<script>
-	$(document).ready(function () {
-		  $('select').selectize({
-			  sortField: 'text'
-		  });
-	  });
+<div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</div>
 
-	</script>
-</head>
-<body>
-<form class="main_form" action="/submit_mas_entry" method="get">
+<script>
+$(document).ready(function () {
+      $('select').selectize({
+          sortField: 'text'
+      });
+  });
+</script>
+
+<form action="/submit_mas_entry" method="get">
 
 	<!-- Date of issue / consumption -->
 	<div>
@@ -35,7 +30,7 @@
 			<option value="lt_dist_box">LT Dist. Box / Tyco</option>
 			<option value="steel_strap">Steel Strap</option>
 		</datalist> -->
-		<select id="mas_entry_materials" name="mas_entry_material" required>
+		<select id="mas_entry_materials" name="mas_entry_material" style="width: 200px" required>
 			<option value="">Select material...</option>
 			<option value="3_PH_BUSBAR">3 PH BUSBAR</option>
 			<option value="ACB_LT_400A">ACB LT 400A</option>
@@ -218,7 +213,7 @@
 			<option value="L"> -->
 			
 		<label for="units">Unit</label>
-		<select id="units" name="unit" style="margin-left:50px" required>
+		<select id="units" name="unit" style="width: 200px" required>
 			<option value="">Select unit...</option>
 			<option value="EA">EA</option>
 			<option value="M">M</option>
@@ -243,4 +238,4 @@
 	<input type="submit" value="Submit">
 	
 </form>
-</body>
+
