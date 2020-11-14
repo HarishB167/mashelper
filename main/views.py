@@ -31,19 +31,6 @@ def submit_mas_entry(request):
 	r = requests.post(url, data=raw_data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
 	
 	return HttpResponse(f"Date : {date}, Material : {material}, Quantity : {quantity}, Unit : {unit}, location : {location}, remarks : \"{remarks}\" submit entry page.\n Response : {r.status_code}")
-	
-def mystyles(request):
-	print(f"Base dir is : {BASE_DIR}")
-	print(os.listdir())
-	styles_file = BASE_DIR+'/main/templates/main/mystyles.css'
-	print(f"Styles file is : {styles_file}")
-	file = open(styles_file, "r+")
-	print(file.readlines())
-	file.close()
-	
-	styles = open(styles_file, 'rb')
-	response = FileResponse(styles)
-	return response
 
 	
 # https://docs.google.com/forms/d/e/1FAIpQLSfBWroDCSu8EJjCeRED1blUfEkEmGH-I8QKO4CU703et2KtOQ/viewform?usp=pp_url&entry.706492584=somedate&entry.625439819=somematerial&entry.1226761935=somequantity&entry.1179087314=someunit&entry.636920682=somelocation&entry.636386930=someremarks
