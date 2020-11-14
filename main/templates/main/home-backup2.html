@@ -1,0 +1,36 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+<div class="container">
+<form action="/">
+
+	<label for="mas_entry_date">Date of Issue/Consumption:</label>
+	<input type="date" id="mas_entry_date" name="mas_entry_date">
+	<input type="text" class="datepicker">
+	
+	<div class="input-field col s12">
+		<label for="mas_entry_material">Material Name:</label>
+		<select id="mas_entry_material" name="mas_entry_material" size="3">
+		  <option value="ipc_p4">IPC P4</option>
+		  <option value="ipc_p2">IPC P2</option>
+		  <option value="lt_dist_box">LT Dist. Box / Tyco</option>
+		  <option value="steel_strap">Steel Strap</option>
+		</select>
+	</div>
+	<p id="demo"></p>
+</form>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('select');
+		var instances = M.FormSelect.init(elems, options);
+	});
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.datepicker');
+		var instances = M.Datepicker.init(elems, options);
+	});
+	document.addEventListener("click", function(){
+		document.getElementById("demo").innerHTML = "Hello World";
+	});
+</script>
+</div>
+{% endblock %}
