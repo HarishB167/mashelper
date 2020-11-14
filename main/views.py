@@ -33,7 +33,8 @@ def submit_mas_entry(request):
 	return HttpResponse(f"Date : {date}, Material : {material}, Quantity : {quantity}, Unit : {unit}, location : {location}, remarks : \"{remarks}\" submit entry page.\n Response : {r.status_code}")
 	
 def mystyles(request):
-	styles = open('main/templates/main/mystyles.css', 'rb')
+	print(f"Base dir is : {BASE_DIR}")
+	styles = open(BASE_DIR+'/main/templates/main/mystyles.css', 'rb')
 	response = FileResponse(styles)
 	return response
 
