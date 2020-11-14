@@ -34,7 +34,10 @@ def submit_mas_entry(request):
 	
 def mystyles(request):
 	print(f"Base dir is : {BASE_DIR}")
-	styles = open(BASE_DIR+'/main/templates/main/mystyles.css', 'rb')
+	print(os.listdir())
+	styles_file = BASE_DIR+'/main/templates/main/mystyles.css'
+	print(f"Styles file is : {styles_file}")
+	styles = open(styles_file, 'rb')
 	response = FileResponse(styles)
 	return response
 
