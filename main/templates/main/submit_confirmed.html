@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta http-equiv="refresh" content="15;url=/" />
+    {% load static %}
+</head>
+<body>
+<p>Thanks for submitting. Auto redirecting after 15 seconds</p>
+<style>
+	table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	th, td {
+	  padding: 5px;
+	}
+	th {
+	  text-align: left;
+	}
+</style>
+<table>
+	<caption>Material items.</caption>
+  <tr>
+    <th>Material</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+	<th>Location</th>
+	<th>Remarks</th>
+	<th>Form response</th>
+  </tr>
+	{% for line in material_lines  %}
+	<tr> 
+		<td>{{ line.0 }}</td>
+		<td>{{ line.1 }}</td>
+		<td>{{ line.2 }}</td>
+		<td>{{ line.3 }}</td>
+		<td>{{ line.4 }}</td>
+		<td>{{ line.5 }}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+<form action="/">
+    <input type="submit" value="New Form" />
+</form>
+
+</body>
+</html>

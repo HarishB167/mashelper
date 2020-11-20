@@ -1,3 +1,4 @@
+<html>
 <head>
     {% load static %}
     <!-- Compiled and minified CSS -->
@@ -7,227 +8,25 @@
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" /> -->
 	<!-- <link rel="stylesheet" href="mystyles"/> -->
 	<link rel="stylesheet" href="{% static 'css/mystyles.css' %}"/>	
+	<script src="{% static 'scripts/myscript.js' %}"></script>
 	
-	<script>
-	$(document).ready(function () {
-		  $('select').selectize({
-			  sortField: 'text'
-		  });
-	  });
+	<!-- <script> -->
+	<!-- $(document).ready(function () { -->
+		  <!-- $('select').selectize({ -->
+			  <!-- sortField: 'text' -->
+		  <!-- }); -->
+	  <!-- }); -->
 
-	</script>
+	<!-- </script> -->
 </head>
 <body>
-<form class="main_form" action="/submit_mas_entry" method="get">
+<form class="main_form" action="/submit_mas_entry" method="post">
+	{% csrf_token %}
 
 	<!-- Date of issue / consumption -->
 	<div>
-		<label for="mas_entry_date">Date of Issue/Consumption {{static_url}}:</label>
+		<label for="mas_entry_date">Date of Issue/Consumption:</label>
 		<input type="date" id="mas_entry_date" name="mas_entry_date" required>
-	</div>
-	
-	<!-- Material Name -->
-	<div class="input-field col s12">
-		<label for="mas_entry_materials">Material Name:</label>
-		<!-- <input list="mas_entry_materials" name="mas_entry_material" id="mas_entry_material" required>
-		<datalist id="mas_entry_materials">
-			<option value="ipc_p4">IPC P4</option>
-			<option value="ipc_p2">IPC P2</option>
-			<option value="lt_dist_box">LT Dist. Box / Tyco</option>
-			<option value="steel_strap">Steel Strap</option>
-		</datalist> -->
-		<select id="mas_entry_materials" name="mas_entry_material" required>
-			<option value="">Select material...</option>
-			<option value="3_PH_BUSBAR">3 PH BUSBAR</option>
-			<option value="ACB_LT_400A">ACB LT 400A</option>
-			<option value="ACB_LT_800A">ACB LT 800A</option>
-			<option value="AL_LUG_10_SQ_MM_">AL LUG 10 SQ MM </option>
-			<option value="AL_LUG_150_SQMM">AL LUG 150 SQMM</option>
-			<option value="AL_LUG_25_SQ_MM">AL LUG 25 SQ MM</option>
-			<option value="AL_LUG_300_SQMM">AL LUG 300 SQMM</option>
-			<option value="AL_LUG_50_SQ_MM">AL LUG 50 SQ MM</option>
-			<option value="AL_LUG_630_SQMM_Double_hole">AL LUG 630 SQMM Double hole</option>
-			<option value="AL_LUG_70_SQMM">AL LUG 70 SQMM</option>
-			<option value="AL_LUG_95_SQMM">AL LUG 95 SQMM</option>
-			<option value="ANCHOR_CLAMP_(DEAD_END)">ANCHOR CLAMP (DEAD END)</option>
-			<option value="ANCHOR_ROD">ANCHOR ROD</option>
-			<option value="ANGLE_50X50X6">ANGLE 50X50X6</option>
-			<option value="ANTICLIMBING_DEVICE">ANTICLIMBING DEVICE</option>
-			<option value="BARREL">BARREL</option>
-			<option value="BASE_PLATE">BASE PLATE</option>
-			<option value="BIRD_CAP">BIRD CAP</option>
-			<option value="BIRD_GUARD_SPIKE">BIRD GUARD SPIKE</option>
-			<option value="BOARD_DANGER_11KV">BOARD DANGER 11KV</option>
-			<option value="BOARD_DANGER_440V">BOARD DANGER 440V</option>
-			<option value="BREAKOUT_4CX300">BREAKOUT 4CX300</option>
-			<option value="BREATHER_1KG">BREATHER 1KG</option>
-			<option value="BREATHER_500G">BREATHER 500G</option>
-			<option value="BUCKLE">BUCKLE</option>
-			<option value="CABLE_1.1KV_10CX2.5_SQMM">CABLE 1.1KV 10CX2.5 SQMM</option>
-			<option value="CABLE_1.1KV_1CX2.5_SQMM">CABLE 1.1KV 1CX2.5 SQMM</option>
-			<option value="CABLE_1.1KV_1CX25_SQMM">CABLE 1.1KV 1CX25 SQMM</option>
-			<option value="CABLE_1.1KV_1CX300_SQMM">CABLE 1.1KV 1CX300 SQMM</option>
-			<option value="CABLE_1.1KV_1CX4_SQMM">CABLE 1.1KV 1CX4 SQMM</option>
-			<option value="CABLE_1.1KV_1CX630_SQMM">CABLE 1.1KV 1CX630 SQMM</option>
-			<option value="CABLE_1.1KV_1CX95_SQMM">CABLE 1.1KV 1CX95 SQMM</option>
-			<option value="CABLE_1.1KV_2CX16_SQMM">CABLE 1.1KV 2CX16 SQMM</option>
-			<option value="CABLE_1.1KV_2CX25_SQMM">CABLE 1.1KV 2CX25 SQMM</option>
-			<option value="CABLE_1.1KV_4CX25_SQMM">CABLE 1.1KV 4CX25 SQMM</option>
-			<option value="CABLE_1.1KV_4CX300_SQMM">CABLE 1.1KV 4CX300 SQMM</option>
-			<option value="CABLE_1.1KV_4CX50_SQMM">CABLE 1.1KV 4CX50 SQMM</option>
-			<option value="CABLE_11KV_3CX300_SQMM_XLPE">CABLE 11KV 3CX300 SQMM XLPE</option>
-			<option value="CABLE_11KV_3CX400_SQMM_XLPE">CABLE 11KV 3CX400 SQMM XLPE</option>
-			<option value="CABLE_ABC_1.1KV_4CX150_SQMM">CABLE ABC 1.1KV 4CX150 SQMM</option>
-			<option value="CABLE_ABC_11_KV_1CX150_SQMM">CABLE ABC 11 KV 1CX150 SQMM</option>
-			<option value="CABLE_ABC_11_KV_1CX95_SQMM">CABLE ABC 11 KV 1CX95 SQMM</option>
-			<option value="CABLE_ABC_11_KV_3CX150_SQMM">CABLE ABC 11 KV 3CX150 SQMM</option>
-			<option value="CABLE_ABC_11_KV_3CX95_SQMM">CABLE ABC 11 KV 3CX95 SQMM</option>
-			<option value="CABLE_TIE">CABLE TIE</option>
-			<option value="CAUTION_TAPE">CAUTION TAPE</option>
-			<option value="CHANNEL_100X50X6">CHANNEL 100X50X6</option>
-			<option value="CHANNEL_75X40X6">CHANNEL 75X40X6</option>
-			<option value="CHOKE_150W">CHOKE 150W</option>
-			<option value="CHOKE_70W">CHOKE 70W</option>
-			<option value="CLEAT">CLEAT</option>
-			<option value="CONDUCTOR_ACSR_DOG_">CONDUCTOR ACSR DOG </option>
-			<option value="CONDUCTOR_ACSR_RABBIT">CONDUCTOR ACSR RABBIT</option>
-			<option value="CONNECTOR_MINI_WEDGE_25_SQMM_TO_DOG">CONNECTOR MINI WEDGE 25 SQMM TO DOG</option>
-			<option value="CRC">CRC</option>
-			<option value="DHOTI">DHOTI</option>
-			<option value="DISC_INSULATOR">DISC INSULATOR</option>
-			<option value="DT_METER_BOX">DT METER BOX</option>
-			<option value="DT_METER_WIRING_KIT_1000/5A">DT METER WIRING KIT 1000/5A</option>
-			<option value="DT_METER_WIRING_KIT_1500/5A">DT METER WIRING KIT 1500/5A</option>
-			<option value="DT_METER_WIRING_KIT_200/5A">DT METER WIRING KIT 200/5A</option>
-			<option value="DT_METER_WIRING_KIT_400/5A">DT METER WIRING KIT 400/5A</option>
-			<option value="DT_METER_WIRING_KIT_600/5A">DT METER WIRING KIT 600/5A</option>
-			<option value="EARTH_PIPE_40_MM">EARTH PIPE 40 MM</option>
-			<option value="EYE_HOOK">EYE HOOK</option>
-			<option value="FRP_X-ARM">FRP X-ARM</option>
-			<option value="FUSE_BARREL">FUSE BARREL</option>
-			<option value="FUSE_ELEMENT_10A">FUSE ELEMENT 10A</option>
-			<option value="FUSE_ELEMENT_20A">FUSE ELEMENT 20A</option>
-			<option value="FUSE_ELEMENT_30A">FUSE ELEMENT 30A</option>
-			<option value="FUSE_ELEMENT_5A">FUSE ELEMENT 5A</option>
-			<option value="FUSE_ELEMENT_8A">FUSE ELEMENT 8A</option>
-			<option value="FUSE_UNIT_DD_11KV">FUSE UNIT DD 11KV</option>
-			<option value="FUSE_WIRE">FUSE WIRE</option>
-			<option value="GASKET">GASKET</option>
-			<option value="GI_PIPE_100MM">GI PIPE 100MM</option>
-			<option value="GI_WIRE_10_NO.">GI WIRE 10 NO.</option>
-			<option value="GI_WIRE_6_NO.">GI WIRE 6 NO.</option>
-			<option value="GI_WIRE_8_NO.">GI WIRE 8 NO.</option>
-			<option value="GO_SET">GO SET</option>
-			<option value="GO_SWITCH_CONTILEVER_BASED">GO SWITCH CONTILEVER BASED</option>
-			<option value="H/W_FITTING">H/W FITTING</option>
-			<option value="HDPE_PIPE_25_MM">HDPE PIPE 25 MM</option>
-			<option value="HELMET_SAFETY_HDPE_INDUSTRIAL">HELMET SAFETY HDPE INDUSTRIAL</option>
-			<option value="HOLDER_150W">HOLDER 150W</option>
-			<option value="HOLDER_70W">HOLDER 70W</option>
-			<option value="HS_TUBE_150">HS TUBE 150</option>
-			<option value="HS_TUBE_300">HS TUBE 300</option>
-			<option value="HT_BUSHING_ROD">HT BUSHING ROD</option>
-			<option value="HT_TAPE">HT TAPE</option>
-			<option value="IGNITOR">IGNITOR</option>
-			<option value="IPC_P2">IPC P2</option>
-			<option value="IPC_P4">IPC P4</option>
-			<option value="IPC_ST._LIGHT_">IPC ST. LIGHT </option>
-			<option value="LAMP_150W">LAMP 150W</option>
-			<option value="LAMP_70W">LAMP 70W</option>
-			<option value="LED_120">LED 120</option>
-			<option value="LED_70">LED 70</option>
-			<option value="LT_BUSHING_ROD_100_/_400KVA_TRF">LT BUSHING ROD 100 / 400KVA TRF</option>
-			<option value="LT_DIST._BOX">LT DIST. BOX</option>
-			<option value="Magnetic_Float_Switch">Magnetic Float Switch</option>
-			<option value="MCCB_1PH_(100A_10KA)">MCCB 1PH (100A 10KA)</option>
-			<option value="MCCB_3PH">MCCB 3PH</option>
-			<option value="MCCB_BASE_ST._LIGHT_SWITCH">MCCB BASE ST. LIGHT SWITCH</option>
-			<option value="METAL_DISTRIBUTION_BOX">METAL DISTRIBUTION BOX</option>
-			<option value="MID_SPAN_JOINT">MID SPAN JOINT</option>
-			<option value="MS_FLAT_30X5">MS FLAT 30X5</option>
-			<option value="MS_FLAT_50X6">MS FLAT 50X6</option>
-			<option value="NUT_BOLT_10X100_SQMM">NUT BOLT 10X100 SQMM</option>
-			<option value="NUT_BOLT_10X25_SQMM">NUT BOLT 10X25 SQMM</option>
-			<option value="NUT_BOLT_10X50_SQMM">NUT BOLT 10X50 SQMM</option>
-			<option value="NUT_BOLT_10X75_SQMM">NUT BOLT 10X75 SQMM</option>
-			<option value="NUT_BOLT_12X100_SQMM">NUT BOLT 12X100 SQMM</option>
-			<option value="NUT_BOLT_12X25_SQMM">NUT BOLT 12X25 SQMM</option>
-			<option value="NUT_BOLT_12X50_SQMM">NUT BOLT 12X50 SQMM</option>
-			<option value="NUT_BOLT_12X75_SQMM">NUT BOLT 12X75 SQMM</option>
-			<option value="NUT_BOLT_16X100_SQMM">NUT BOLT 16X100 SQMM</option>
-			<option value="NUT_BOLT_16X150_SQMM">NUT BOLT 16X150 SQMM</option>
-			<option value="NUT_BOLT_16X175_SQMM">NUT BOLT 16X175 SQMM</option>
-			<option value="NUT_BOLT_16X200_SQMM">NUT BOLT 16X200 SQMM</option>
-			<option value="NUT_BOLT_16X250_SQMM">NUT BOLT 16X250 SQMM</option>
-			<option value="NUT_BOLT_16X300_SQMM">NUT BOLT 16X300 SQMM</option>
-			<option value="NUT_BOLT_16X350_SQMM">NUT BOLT 16X350 SQMM</option>
-			<option value="NUT_BOLT_16X400_SQMM">NUT BOLT 16X400 SQMM</option>
-			<option value="NUT_BOLT_16X75_SQMM">NUT BOLT 16X75 SQMM</option>
-			<option value="O/D_1.1KV_XLPE_4X300_SQ.MM_HS">O/D 1.1KV XLPE 4X300 SQ.MM HS</option>
-			<option value="O/D_11KV_3CX300_SQMM_XLPE">O/D 11KV 3CX300 SQMM XLPE</option>
-			<option value="O/D_11KV_3CX400_SQMM_XLPE">O/D 11KV 3CX400 SQMM XLPE</option>
-			<option value="O/D_HT_ABC_1CX150_SQMM">O/D HT ABC 1CX150 SQMM</option>
-			<option value="O/D_HT_ABC_1CX95_SQMM">O/D HT ABC 1CX95 SQMM</option>
-			<option value="Oil_seal_HT">Oil seal HT</option>
-			<option value="Oil_seal_LT">Oil seal LT</option>
-			<option value="PALM_CONNECTOR">PALM CONNECTOR</option>
-			<option value="PIN_INSULATOR">PIN INSULATOR</option>
-			<option value="POLE_CAPACITOR_LOW_VOLTAGE">POLE CAPACITOR LOW VOLTAGE</option>
-			<option value="POLE_PCC_11_M_LONG">POLE PCC 11 M LONG</option>
-			<option value="POLYFIN">POLYFIN</option>
-			<option value="POWER_SUPPLY_MODULE_FOR_DIDO">POWER SUPPLY MODULE FOR DIDO</option>
-			<option value="PUTTY_GP">PUTTY GP</option>
-			<option value="S/STN_LOCK">S/STN LOCK</option>
-			<option value="SF-6_GAS_CYLINDER">SF-6 GAS CYLINDER</option>
-			<option value="SILICA_GEL">SILICA GEL</option>
-			<option value="SILICON_RUBBER_SPACER_11_KV">SILICON RUBBER SPACER 11 KV</option>
-			<option value="ST_TH_1.1KV_4CX300_SQMM_LT_XLPE">ST TH 1.1KV 4CX300 SQMM LT XLPE</option>
-			<option value="ST_TH_11KV_3CX300_SQMM_XLPE">ST TH 11KV 3CX300 SQMM XLPE</option>
-			<option value="ST_TH_11KV_3CX400_SQMM_XLPE">ST TH 11KV 3CX400 SQMM XLPE</option>
-			<option value="ST_TH_1CX150_SQMM_HT_ABC">ST TH 1CX150 SQMM HT ABC</option>
-			<option value="ST_TH_1CX95_SQMM_HT_ABC">ST TH 1CX95 SQMM HT ABC</option>
-			<option value="STAY_COLLAR">STAY COLLAR</option>
-			<option value="STAY_INSULATOR">STAY INSULATOR</option>
-			<option value="STAY_WIRE_7/10">STAY WIRE 7/10</option>
-			<option value="STEEL_STRAP">STEEL STRAP</option>
-			<option value="SUSPENSION_CLAMP">SUSPENSION CLAMP</option>
-			<option value="TAG_LEAF_DO_NOT_OPERATE_ADHESIVE">TAG LEAF DO NOT OPERATE ADHESIVE</option>
-			<option value="TAPE_PVC">TAPE PVC</option>
-			<option value="TENSION_SCREW">TENSION SCREW</option>
-			<option value="TOP_HAMPER">TOP HAMPER</option>
-			<option value="TRAFFIC_CONE_HDPE_REFLECTIVE">TRAFFIC CONE HDPE REFLECTIVE</option>
-			<option value="TRANSFORMER">TRANSFORMER</option>
-			<option value="TRANSFORMER_OIL">TRANSFORMER OIL</option>
-			<option value="TWO_LINE_X-ARM">TWO LINE X-ARM</option>
-			<option value="V-CROSS_ARM">V-CROSS ARM</option>
-			<option value="WASHER_10">WASHER 10</option>
-			<option value="WASHER_12">WASHER 12</option>
-			<option value="WASHER_16">WASHER 16</option>
-			<option value="WASHER_8">WASHER 8</option>
-		</select>
-	</div>
-	
-	<!-- Quantity of material -->
-	<div>
-		<label for="quantity">Quantity:</label>
-		<input type="number" id="quantity" name="quantity" min="1" required>
-<!-- 		<input list="units" name="unit" id="unit" required>
-		<datalist id="units">
-			<option value="EA">
-			<option value="M">
-			<option value="ROL">
-			<option value="L"> -->
-			
-		<label for="units">Unit</label>
-		<select id="units" name="unit" style="margin-left:50px" required>
-			<option value="">Select unit...</option>
-			<option value="EA">EA</option>
-			<option value="M">M</option>
-			<option value="KG">KG</option>
-			<option value="ROL">ROL</option>
-			<option value="L">L</option>
-		</select>
-		</datalist>
 	</div>
 	
 	<!-- Location -->
@@ -242,7 +41,235 @@
 		<input type="text" id="remarks" name="remarks"><br><br>
 	</div>
 	
-	<input type="submit" value="Submit">
+	<!-- A div element holding all material line items -->
+	<div class="material_line_item_list" id="material_line_item_list">
+	
+		<!-- Material line item including details about material
+			Material name, quantity & unit -->
+		<div class="material_line_item" id="material_line_item">
+		
+			<!-- Material Name -->
+			<div class="input-field col s12">
+				<label for="mas_entry_materials">Material Name:</label>
+				<!-- <input list="mas_entry_materials" name="mas_entry_material" id="mas_entry_material" required>
+				<datalist id="mas_entry_materials">
+					<option value="ipc_p4">IPC P4</option>
+					<option value="ipc_p2">IPC P2</option>
+					<option value="lt_dist_box">LT Dist. Box / Tyco</option>
+					<option value="steel_strap">Steel Strap</option>
+				</datalist> -->
+				<select id="mas_entry_materials" class="mas_entry_material" name="mas_entry_material" required>
+					<option value="">Select material...</option>
+					<option value="3_PH_BUSBAR">3 PH BUSBAR</option>
+					<option value="ACB_LT_400A">ACB LT 400A</option>
+					<option value="ACB_LT_800A">ACB LT 800A</option>
+					<option value="AL_LUG_10_SQ_MM_">AL LUG 10 SQ MM </option>
+					<option value="AL_LUG_150_SQMM">AL LUG 150 SQMM</option>
+					<option value="AL_LUG_25_SQ_MM">AL LUG 25 SQ MM</option>
+					<option value="AL_LUG_300_SQMM">AL LUG 300 SQMM</option>
+					<option value="AL_LUG_50_SQ_MM">AL LUG 50 SQ MM</option>
+					<option value="AL_LUG_630_SQMM_Double_hole">AL LUG 630 SQMM Double hole</option>
+					<option value="AL_LUG_70_SQMM">AL LUG 70 SQMM</option>
+					<option value="AL_LUG_95_SQMM">AL LUG 95 SQMM</option>
+					<option value="ANCHOR_CLAMP_(DEAD_END)">ANCHOR CLAMP (DEAD END)</option>
+					<option value="ANCHOR_ROD">ANCHOR ROD</option>
+					<option value="ANGLE_50X50X6">ANGLE 50X50X6</option>
+					<option value="ANTICLIMBING_DEVICE">ANTICLIMBING DEVICE</option>
+					<option value="BARREL">BARREL</option>
+					<option value="BASE_PLATE">BASE PLATE</option>
+					<option value="BIRD_CAP">BIRD CAP</option>
+					<option value="BIRD_GUARD_SPIKE">BIRD GUARD SPIKE</option>
+					<option value="BOARD_DANGER_11KV">BOARD DANGER 11KV</option>
+					<option value="BOARD_DANGER_440V">BOARD DANGER 440V</option>
+					<option value="BREAKOUT_4CX300">BREAKOUT 4CX300</option>
+					<option value="BREATHER_1KG">BREATHER 1KG</option>
+					<option value="BREATHER_500G">BREATHER 500G</option>
+					<option value="BUCKLE">BUCKLE</option>
+					<option value="CABLE_1.1KV_10CX2.5_SQMM">CABLE 1.1KV 10CX2.5 SQMM</option>
+					<option value="CABLE_1.1KV_1CX2.5_SQMM">CABLE 1.1KV 1CX2.5 SQMM</option>
+					<option value="CABLE_1.1KV_1CX25_SQMM">CABLE 1.1KV 1CX25 SQMM</option>
+					<option value="CABLE_1.1KV_1CX300_SQMM">CABLE 1.1KV 1CX300 SQMM</option>
+					<option value="CABLE_1.1KV_1CX4_SQMM">CABLE 1.1KV 1CX4 SQMM</option>
+					<option value="CABLE_1.1KV_1CX630_SQMM">CABLE 1.1KV 1CX630 SQMM</option>
+					<option value="CABLE_1.1KV_1CX95_SQMM">CABLE 1.1KV 1CX95 SQMM</option>
+					<option value="CABLE_1.1KV_2CX16_SQMM">CABLE 1.1KV 2CX16 SQMM</option>
+					<option value="CABLE_1.1KV_2CX25_SQMM">CABLE 1.1KV 2CX25 SQMM</option>
+					<option value="CABLE_1.1KV_4CX25_SQMM">CABLE 1.1KV 4CX25 SQMM</option>
+					<option value="CABLE_1.1KV_4CX300_SQMM">CABLE 1.1KV 4CX300 SQMM</option>
+					<option value="CABLE_1.1KV_4CX50_SQMM">CABLE 1.1KV 4CX50 SQMM</option>
+					<option value="CABLE_11KV_3CX300_SQMM_XLPE">CABLE 11KV 3CX300 SQMM XLPE</option>
+					<option value="CABLE_11KV_3CX400_SQMM_XLPE">CABLE 11KV 3CX400 SQMM XLPE</option>
+					<option value="CABLE_ABC_1.1KV_4CX150_SQMM">CABLE ABC 1.1KV 4CX150 SQMM</option>
+					<option value="CABLE_ABC_11_KV_1CX150_SQMM">CABLE ABC 11 KV 1CX150 SQMM</option>
+					<option value="CABLE_ABC_11_KV_1CX95_SQMM">CABLE ABC 11 KV 1CX95 SQMM</option>
+					<option value="CABLE_ABC_11_KV_3CX150_SQMM">CABLE ABC 11 KV 3CX150 SQMM</option>
+					<option value="CABLE_ABC_11_KV_3CX95_SQMM">CABLE ABC 11 KV 3CX95 SQMM</option>
+					<option value="CABLE_TIE">CABLE TIE</option>
+					<option value="CAUTION_TAPE">CAUTION TAPE</option>
+					<option value="CHANNEL_100X50X6">CHANNEL 100X50X6</option>
+					<option value="CHANNEL_75X40X6">CHANNEL 75X40X6</option>
+					<option value="CHOKE_150W">CHOKE 150W</option>
+					<option value="CHOKE_70W">CHOKE 70W</option>
+					<option value="CLEAT">CLEAT</option>
+					<option value="CONDUCTOR_ACSR_DOG_">CONDUCTOR ACSR DOG </option>
+					<option value="CONDUCTOR_ACSR_RABBIT">CONDUCTOR ACSR RABBIT</option>
+					<option value="CONNECTOR_MINI_WEDGE_25_SQMM_TO_DOG">CONNECTOR MINI WEDGE 25 SQMM TO DOG</option>
+					<option value="CRC">CRC</option>
+					<option value="DHOTI">DHOTI</option>
+					<option value="DISC_INSULATOR">DISC INSULATOR</option>
+					<option value="DT_METER_BOX">DT METER BOX</option>
+					<option value="DT_METER_WIRING_KIT_1000/5A">DT METER WIRING KIT 1000/5A</option>
+					<option value="DT_METER_WIRING_KIT_1500/5A">DT METER WIRING KIT 1500/5A</option>
+					<option value="DT_METER_WIRING_KIT_200/5A">DT METER WIRING KIT 200/5A</option>
+					<option value="DT_METER_WIRING_KIT_400/5A">DT METER WIRING KIT 400/5A</option>
+					<option value="DT_METER_WIRING_KIT_600/5A">DT METER WIRING KIT 600/5A</option>
+					<option value="EARTH_PIPE_40_MM">EARTH PIPE 40 MM</option>
+					<option value="EYE_HOOK">EYE HOOK</option>
+					<option value="FRP_X-ARM">FRP X-ARM</option>
+					<option value="FUSE_BARREL">FUSE BARREL</option>
+					<option value="FUSE_ELEMENT_10A">FUSE ELEMENT 10A</option>
+					<option value="FUSE_ELEMENT_20A">FUSE ELEMENT 20A</option>
+					<option value="FUSE_ELEMENT_30A">FUSE ELEMENT 30A</option>
+					<option value="FUSE_ELEMENT_5A">FUSE ELEMENT 5A</option>
+					<option value="FUSE_ELEMENT_8A">FUSE ELEMENT 8A</option>
+					<option value="FUSE_UNIT_DD_11KV">FUSE UNIT DD 11KV</option>
+					<option value="FUSE_WIRE">FUSE WIRE</option>
+					<option value="GASKET">GASKET</option>
+					<option value="GI_PIPE_100MM">GI PIPE 100MM</option>
+					<option value="GI_WIRE_10_NO.">GI WIRE 10 NO.</option>
+					<option value="GI_WIRE_6_NO.">GI WIRE 6 NO.</option>
+					<option value="GI_WIRE_8_NO.">GI WIRE 8 NO.</option>
+					<option value="GO_SET">GO SET</option>
+					<option value="GO_SWITCH_CONTILEVER_BASED">GO SWITCH CONTILEVER BASED</option>
+					<option value="H/W_FITTING">H/W FITTING</option>
+					<option value="HDPE_PIPE_25_MM">HDPE PIPE 25 MM</option>
+					<option value="HELMET_SAFETY_HDPE_INDUSTRIAL">HELMET SAFETY HDPE INDUSTRIAL</option>
+					<option value="HOLDER_150W">HOLDER 150W</option>
+					<option value="HOLDER_70W">HOLDER 70W</option>
+					<option value="HS_TUBE_150">HS TUBE 150</option>
+					<option value="HS_TUBE_300">HS TUBE 300</option>
+					<option value="HT_BUSHING_ROD">HT BUSHING ROD</option>
+					<option value="HT_TAPE">HT TAPE</option>
+					<option value="IGNITOR">IGNITOR</option>
+					<option value="IPC_P2">IPC P2</option>
+					<option value="IPC_P4">IPC P4</option>
+					<option value="IPC_ST._LIGHT_">IPC ST. LIGHT </option>
+					<option value="LAMP_150W">LAMP 150W</option>
+					<option value="LAMP_70W">LAMP 70W</option>
+					<option value="LED_120">LED 120</option>
+					<option value="LED_70">LED 70</option>
+					<option value="LT_BUSHING_ROD_100_/_400KVA_TRF">LT BUSHING ROD 100 / 400KVA TRF</option>
+					<option value="LT_DIST._BOX">LT DIST. BOX</option>
+					<option value="Magnetic_Float_Switch">Magnetic Float Switch</option>
+					<option value="MCCB_1PH_(100A_10KA)">MCCB 1PH (100A 10KA)</option>
+					<option value="MCCB_3PH">MCCB 3PH</option>
+					<option value="MCCB_BASE_ST._LIGHT_SWITCH">MCCB BASE ST. LIGHT SWITCH</option>
+					<option value="METAL_DISTRIBUTION_BOX">METAL DISTRIBUTION BOX</option>
+					<option value="MID_SPAN_JOINT">MID SPAN JOINT</option>
+					<option value="MS_FLAT_30X5">MS FLAT 30X5</option>
+					<option value="MS_FLAT_50X6">MS FLAT 50X6</option>
+					<option value="NUT_BOLT_10X100_SQMM">NUT BOLT 10X100 SQMM</option>
+					<option value="NUT_BOLT_10X25_SQMM">NUT BOLT 10X25 SQMM</option>
+					<option value="NUT_BOLT_10X50_SQMM">NUT BOLT 10X50 SQMM</option>
+					<option value="NUT_BOLT_10X75_SQMM">NUT BOLT 10X75 SQMM</option>
+					<option value="NUT_BOLT_12X100_SQMM">NUT BOLT 12X100 SQMM</option>
+					<option value="NUT_BOLT_12X25_SQMM">NUT BOLT 12X25 SQMM</option>
+					<option value="NUT_BOLT_12X50_SQMM">NUT BOLT 12X50 SQMM</option>
+					<option value="NUT_BOLT_12X75_SQMM">NUT BOLT 12X75 SQMM</option>
+					<option value="NUT_BOLT_16X100_SQMM">NUT BOLT 16X100 SQMM</option>
+					<option value="NUT_BOLT_16X150_SQMM">NUT BOLT 16X150 SQMM</option>
+					<option value="NUT_BOLT_16X175_SQMM">NUT BOLT 16X175 SQMM</option>
+					<option value="NUT_BOLT_16X200_SQMM">NUT BOLT 16X200 SQMM</option>
+					<option value="NUT_BOLT_16X250_SQMM">NUT BOLT 16X250 SQMM</option>
+					<option value="NUT_BOLT_16X300_SQMM">NUT BOLT 16X300 SQMM</option>
+					<option value="NUT_BOLT_16X350_SQMM">NUT BOLT 16X350 SQMM</option>
+					<option value="NUT_BOLT_16X400_SQMM">NUT BOLT 16X400 SQMM</option>
+					<option value="NUT_BOLT_16X75_SQMM">NUT BOLT 16X75 SQMM</option>
+					<option value="O/D_1.1KV_XLPE_4X300_SQ.MM_HS">O/D 1.1KV XLPE 4X300 SQ.MM HS</option>
+					<option value="O/D_11KV_3CX300_SQMM_XLPE">O/D 11KV 3CX300 SQMM XLPE</option>
+					<option value="O/D_11KV_3CX400_SQMM_XLPE">O/D 11KV 3CX400 SQMM XLPE</option>
+					<option value="O/D_HT_ABC_1CX150_SQMM">O/D HT ABC 1CX150 SQMM</option>
+					<option value="O/D_HT_ABC_1CX95_SQMM">O/D HT ABC 1CX95 SQMM</option>
+					<option value="Oil_seal_HT">Oil seal HT</option>
+					<option value="Oil_seal_LT">Oil seal LT</option>
+					<option value="PALM_CONNECTOR">PALM CONNECTOR</option>
+					<option value="PIN_INSULATOR">PIN INSULATOR</option>
+					<option value="POLE_CAPACITOR_LOW_VOLTAGE">POLE CAPACITOR LOW VOLTAGE</option>
+					<option value="POLE_PCC_11_M_LONG">POLE PCC 11 M LONG</option>
+					<option value="POLYFIN">POLYFIN</option>
+					<option value="POWER_SUPPLY_MODULE_FOR_DIDO">POWER SUPPLY MODULE FOR DIDO</option>
+					<option value="PUTTY_GP">PUTTY GP</option>
+					<option value="S/STN_LOCK">S/STN LOCK</option>
+					<option value="SF-6_GAS_CYLINDER">SF-6 GAS CYLINDER</option>
+					<option value="SILICA_GEL">SILICA GEL</option>
+					<option value="SILICON_RUBBER_SPACER_11_KV">SILICON RUBBER SPACER 11 KV</option>
+					<option value="ST_TH_1.1KV_4CX300_SQMM_LT_XLPE">ST TH 1.1KV 4CX300 SQMM LT XLPE</option>
+					<option value="ST_TH_11KV_3CX300_SQMM_XLPE">ST TH 11KV 3CX300 SQMM XLPE</option>
+					<option value="ST_TH_11KV_3CX400_SQMM_XLPE">ST TH 11KV 3CX400 SQMM XLPE</option>
+					<option value="ST_TH_1CX150_SQMM_HT_ABC">ST TH 1CX150 SQMM HT ABC</option>
+					<option value="ST_TH_1CX95_SQMM_HT_ABC">ST TH 1CX95 SQMM HT ABC</option>
+					<option value="STAY_COLLAR">STAY COLLAR</option>
+					<option value="STAY_INSULATOR">STAY INSULATOR</option>
+					<option value="STAY_WIRE_7/10">STAY WIRE 7/10</option>
+					<option value="STEEL_STRAP">STEEL STRAP</option>
+					<option value="SUSPENSION_CLAMP">SUSPENSION CLAMP</option>
+					<option value="TAG_LEAF_DO_NOT_OPERATE_ADHESIVE">TAG LEAF DO NOT OPERATE ADHESIVE</option>
+					<option value="TAPE_PVC">TAPE PVC</option>
+					<option value="TENSION_SCREW">TENSION SCREW</option>
+					<option value="TOP_HAMPER">TOP HAMPER</option>
+					<option value="TRAFFIC_CONE_HDPE_REFLECTIVE">TRAFFIC CONE HDPE REFLECTIVE</option>
+					<option value="TRANSFORMER">TRANSFORMER</option>
+					<option value="TRANSFORMER_OIL">TRANSFORMER OIL</option>
+					<option value="TWO_LINE_X-ARM">TWO LINE X-ARM</option>
+					<option value="V-CROSS_ARM">V-CROSS ARM</option>
+					<option value="WASHER_10">WASHER 10</option>
+					<option value="WASHER_12">WASHER 12</option>
+					<option value="WASHER_16">WASHER 16</option>
+					<option value="WASHER_8">WASHER 8</option>
+				</select>
+			</div>
+			
+			<!-- Quantity of material -->
+			<div>
+				<label for="quantity">Quantity:</label>
+				<input type="number" id="quantity" class="quantity" name="quantity" style="min-width: 100px; max-width: 150px; margin-right : 10px;" min="1" required>
+		<!-- 		<input list="units" name="unit" id="unit" required>
+				<datalist id="units">
+					<option value="EA">
+					<option value="M">
+					<option value="ROL">
+					<option value="L"> -->
+					
+				<label for="units">Unit</label>
+				<select id="units" class="unit" name="unit" style="margin-left:50px" required>
+					<option value="">Select unit...</option>
+					<option value="EA">EA</option>
+					<option value="M">M</option>
+					<option value="KG">KG</option>
+					<option value="ROL">ROL</option>
+					<option value="L">L</option>
+				</select>
+				</datalist>
+			
+				
+			</div>
+			<!-- For deleting this material line -->
+			<button type="button" class="delete_material_line" onclick="delete_material_line(this)" disabled>Delete</button>
+			
+		</div>
+	</div>
+	
+	<div>
+	<button type="button" class="add_material_line" onclick="add_material_line()">Add</button>
+	</div>
+	
+	<div>
+	<label for="no_of_materials">Total items:</label>
+	<input type="number" id="no_of_materials" name="no_of_materials" style="width : 50px; margin-top : 10px;" value="1" readonly>
+	</div>
+	
+	<input type="submit" class="submit" value="Submit">
 	
 </form>
 </body>
+</html>
