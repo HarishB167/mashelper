@@ -27,9 +27,18 @@
 /* } */
 
 .main_form {
-	margin : 5%;
+	/* margin : 5%; */
 }
 
+.material_line_item {
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0 0 8px #006622;
+	margin : 10px;
+	margin-bottom : 40px;
+	padding : 15px;
+}
+	
 h1 {
 	position: absolute;
 	margin: 0;
@@ -135,7 +144,7 @@ input[type="submit"]:hover {
 }
 
 button {
-	width: 150px;
+	width: auto;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
@@ -143,6 +152,23 @@ button {
 	font-size: 16px;
 	color: #fff;
 	cursor: pointer;
+}
+
+.submit {
+	margin : 50px;
+	width : 200px;
+	align-items : center;
+}
+
+.delete_material_line,
+.add_material_line {
+	border-radius : 3px;
+	color: #fff;
+	background: #edccab;
+}
+.delete_material_line:hover,
+.add_material_line:hover {
+	background: #d2802d;
 }
 
 button:hover {
