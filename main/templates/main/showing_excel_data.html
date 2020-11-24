@@ -1,0 +1,29 @@
+<html>
+<head>
+    {% load static %}
+	<title>MAS Helper : MAS Data - Excel</title>
+	
+</head>
+<style>
+.iframe-loading { 
+	background:url({% static 'images/loader.gif' %}) center center no-repeat; 
+}
+</style>
+<body>
+
+	<p>
+	MAS Data
+	</p>
+	
+	<div class="iframe-loading">
+		<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=https://docs.google.com/spreadsheets/d/1GmnBfnpSssDwof38nRmlU0tixrwcv-3HBrVo2vsDFSs/export?format=xlsx' width='100%' height='565px' frameborder='0' onload="$('.iframe-loading').css('background-image', 'none');">
+		</iframe>
+	</div>
+	
+	<form action="/" style="margin-top: 50px; margin-left: 20px; max-width: 100px;">
+		<input type="submit" value="Submit New Material Entry" />
+	</form>
+
+</body>
+
+</html>

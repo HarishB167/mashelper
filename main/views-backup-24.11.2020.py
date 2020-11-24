@@ -63,13 +63,8 @@ def submit_mas_entry(request):
 	return render(request = request,
 				  template_name="main/submit_confirmed.html",
 				  context = {"material_lines" : material_lines})
-				  
-def show_excel(request):
-	return render(request = request,
-			  template_name="main/showing_excel_data.html")				  
 
 
-# Supporting function for creating new entry.
 def create_mas_entry(mas_entry_date, mas_entry_material, quantity, unit, location, remarks):
 	date = mas_entry_date
 	material = mas_entry_material

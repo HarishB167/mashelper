@@ -21,11 +21,10 @@
 	<!-- </script> -->
 </head>
 <body>
-<div>
-	<form action="https://docs.google.com/spreadsheets/d/1GmnBfnpSssDwof38nRmlU0tixrwcv-3HBrVo2vsDFSs/export?format=xlsx">
-		<input type="submit" value="Download Data in Excel" />
-	</form>
-</div>
+<p class="div_btns">
+	<a href="https://docs.google.com/spreadsheets/d/1GmnBfnpSssDwof38nRmlU0tixrwcv-3HBrVo2vsDFSs/export?format=xlsx">Download Data in Excel</a>
+	<a href="/show_excel" style="margin-left: 20px;">View Data / Excel</a>
+</p>
 <form class="main_form" action="/submit_mas_entry" method="post">
 	{% csrf_token %}
 
